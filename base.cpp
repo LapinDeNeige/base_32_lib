@@ -14,7 +14,7 @@ std::string strng="=ABCDEFGHIJKLMNOPQRSTUVWXYZ23456";
 
 
 
-
+ 
 
 inline uint8_t  finInd(char i) //find index of char
 {
