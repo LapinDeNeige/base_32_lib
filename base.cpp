@@ -14,7 +14,7 @@ std::string strng="=ABCDEFGHIJKLMNOPQRSTUVWXYZ23456";
 
 
 
- 
+
 
 inline uint8_t  finInd(char i) //find index of char
 {
@@ -97,13 +97,13 @@ uint8_t val_to_invert[5]={0};
 
 for(int i=0;i<5;i++) //getting a number after an index in the string range
 {
-  
+
  if(inpt_str[i]==61) //=
  	 val_to_invert[i]=0;
 
 else
 	val_to_invert[i]=finInd(inpt_str[i]);
- 
+
 
 }
 
@@ -150,18 +150,24 @@ uint8_t var[3]={0};
 unsigned char end[5]={0};
 
 string ret;
+ret.clear();
 int j=0;
 
 for(int i=0;i<in.size();i++,j++)
 {
 ch[0]=in[i];
-var[j]=static_cast<uint8_t>(ch[0]); 
+var[j]=static_cast<uint8_t>(ch[0]);
 
 if((j+1)%3==0)
 {
 revi(var,end); //encode
 j=-1;
-ret.append((char*)end,strlen((char*)end));
+
+
+ret.append((const char*)end,sizeof(end)/sizeof(unsigned char));
+
+
+const char *y=ret.c_str();
 
 memset(var,0,3);
 memset(end,0,5);
@@ -174,7 +180,7 @@ memset(end,0,5);
 if(j%3>0)
 {
 revi(var,end);
-ret.append((char*)end,strlen((char*)end));
+ret.append((char*)end,sizeof(end)/sizeof(unsigned char));
 
 //memset(var,0,3);
 //memset(end,0,5);
