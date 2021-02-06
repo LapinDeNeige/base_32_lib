@@ -166,9 +166,6 @@ j=-1;
 
 ret.append((const char*)end,sizeof(end)/sizeof(unsigned char));
 
-
-const char *y=ret.c_str();
-
 memset(var,0,3);
 memset(end,0,5);
 
